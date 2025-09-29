@@ -53,7 +53,7 @@ export async function createOrder(
       agreementAcceptedAt: new Date().toISOString(),
       destinationAddress: json.address,
       destinationNetwork: "base",
-      domain: json.domain,
+      domain: json.domain.replace("https://", ""),
       email: json.email,
       partnerUserRef: `sandbox-${json.address}`,
       paymentCurrency: "USD",
@@ -69,8 +69,6 @@ export async function createOrder(
     },
     method,
   });
-
-  console.log(response);
 
   if (!response.ok) throw new Error(`API Error: ${response.statusText}`);
 

@@ -1,6 +1,7 @@
 # Dev
 
 ```bash
+cp .env.example .env
 pnpm install
 pnpm dev
 ```
